@@ -10,7 +10,7 @@ const restaurants = [
     tipo: 'Japonesa',
     avaliacao: 4.9,
     descricao: 'Peça já o melhor da culinária japonesa no conforto da sua casa!...',
-    capa: 'https://placehold.co/344x167/FFEBD9/E66767?text=Japonesa',
+    capa: 'https://via.placeholder.com/344x167',
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const restaurants = [
     tipo: 'Italiana',
     avaliacao: 4.6,
     descricao: 'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você!...',
-    capa: 'https://placehold.co/344x167/FFEBD9/E66767?text=Italiana',
+    capa: 'https://via.placeholder.com/344x167',
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const restaurants = [
     tipo: 'Japonesa',
     avaliacao: 4.9,
     descricao: 'Peça já o melhor da culinária japonesa no conforto da sua casa!...',
-    capa: 'https://placehold.co/344x167/FFEBD9/E66767?text=Japonesa',
+    capa: 'https://via.placeholder.com/344x167',
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ const restaurants = [
     tipo: 'Italiana',
     avaliacao: 4.6,
     descricao: 'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você!...',
-    capa: 'https://placehold.co/344x167/FFEBD9/E66767?text=Italiana',
+    capa: 'https://via.placeholder.com/344x167',
   },
 ]
 

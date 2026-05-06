@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 import {
   Button,
   Card,
@@ -43,36 +45,61 @@ const fallbackCover = (restaurant: Restaurant) => {
   return `data:image/svg+xml,${encodeURIComponent(svg)}`
 }
 
-const RestaurantCard = ({ restaurant }: Props) => (
-  <Card>
-    <ImageArea>
-      <Cover
-        src={restaurant.capa}
-        alt={restaurant.titulo}
-        onError={(event) => {
-          event.currentTarget.src = fallbackCover(restaurant)
-        }}
-      />
-      <Tags>
-        {restaurant.destacado && <Tag>Destaque da semana</Tag>}
-        <Tag>{restaurant.tipo}</Tag>
-      </Tags>
-    </ImageArea>
+const RestaurantCard = ({ restaurant }: Props) => {
+  const [coverSrc, setCoverSrc] = useState(restaurant.capa)
 
-    <Content>
-      <TitleLine>
-        <Title>{restaurant.titulo}</Title>
-        <Rating>
-          {restaurant.avaliacao.toFixed(1)}
-          <Star aria-hidden="true">★</Star>
-        </Rating>
-      </TitleLine>
+  useEffect(() => {
+    let didLoad = false
+    const image = new Image()
+    const fallbackTimer = window.setTimeout(() => {
+      if (!didLoad) {
+        setCoverSrc(fallbackCover(restaurant))
+      }
+    }, 1200)
 
-      <Description>{restaurant.descricao}</Description>
+    image.onload = () => {
+      didLoad = true
+      window.clearTimeout(fallbackTimer)
+      setCoverSrc(restaurant.capa)
+    }
 
-      <Button to={`/restaurante/${restaurant.id}`}>Saiba mais</Button>
-    </Content>
-  </Card>
-)
+    image.onerror = () => {
+      window.clearTimeout(fallbackTimer)
+      setCoverSrc(fallbackCover(restaurant))
+    }
+
+    image.src = restaurant.capa
+
+    return () => {
+      window.clearTimeout(fallbackTimer)
+    }
+  }, [restaurant])
+
+  return (
+    <Card>
+      <ImageArea>
+        <Cover src={coverSrc} alt={restaurant.titulo} />
+        <Tags>
+          {restaurant.destacado && <Tag>Destaque da semana</Tag>}
+          <Tag>{restaurant.tipo}</Tag>
+        </Tags>
+      </ImageArea>
+
+      <Content>
+        <TitleLine>
+          <Title>{restaurant.titulo}</Title>
+          <Rating>
+            {restaurant.avaliacao.toFixed(1)}
+            <Star aria-hidden="true">★</Star>
+          </Rating>
+        </TitleLine>
+
+        <Description>{restaurant.descricao}</Description>
+
+        <Button to={`/restaurante/${restaurant.id}`}>Saiba mais</Button>
+      </Content>
+    </Card>
+  )
+}
 
 export default RestaurantCard
