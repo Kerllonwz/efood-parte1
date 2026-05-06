@@ -2,43 +2,40 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const Card = styled.article`
-  background-color: #FFFFFF;
-  color: #E66767;
-`
-
-export const ImageArea = styled.div`
-  height: 167px;
+  background-color: var(--white);
+  color: var(--red);
   position: relative;
-  width: 100%;
+  width: 472px;
 `
 
 export const Cover = styled.img`
-  height: 167px;
+  height: 217px;
   object-fit: cover;
-  width: 100%;
+  width: 472px;
 `
 
 export const Tags = styled.div`
   display: flex;
   gap: 8px;
   position: absolute;
-  right: 8px;
-  top: 8px;
+  right: 16px;
+  top: 16px;
 `
 
 export const Tag = styled.span`
-  background-color: #E66767;
-  color: #FFFFFF;
+  background-color: var(--red);
+  color: var(--beige);
   display: inline-block;
   font-size: 12px;
-  font-weight: 700;
-  line-height: 1;
-  padding: 4px 8px;
+  font-weight: 900;
+  line-height: 14px;
+  padding: 6px 4px;
 `
 
 export const Content = styled.div`
-  border: 1px solid #E66767;
-  border-top: 0;
+  border-color: var(--red);
+  border-style: solid;
+  border-width: 0 1px 1px;
   padding: 8px;
 `
 
@@ -46,53 +43,44 @@ export const TitleLine = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
-  gap: 16px;
 `
 
 export const Title = styled.h2`
-  color: #E66767;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.2;
+  color: var(--red);
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 21px;
 `
 
 export const Rating = styled.span`
   align-items: center;
-  color: #E66767;
-  display: inline-flex;
-  flex: 0 0 auto;
-  font-size: 16px;
-  font-weight: 700;
+  color: var(--red);
+  display: flex;
+  font-size: 18px;
+  font-weight: 900;
   gap: 8px;
-  line-height: 1;
+  line-height: 21px;
 `
 
-export const Star = styled.span`
-  color: #FFB930;
-  font-size: 18px;
-  line-height: 1;
+export const Star = styled.img`
+  height: 21px;
+  width: 21px;
 `
 
 export const Description = styled.p`
-  color: #E66767;
+  color: var(--red);
   font-size: 14px;
-  line-height: 1.6;
-  margin: 8px 0;
+  font-weight: 400;
+  line-height: 22px;
+  margin: 16px 0;
 `
 
 export const Button = styled(Link)`
-  align-items: center;
-  background-color: #E66767;
-  border: 0;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: flex;
-  font-size: 14px;
-  font-weight: 700;
-  justify-content: center;
-  line-height: 1.4;
-  margin-top: 8px;
-  padding: 4px 0;
-  text-align: center;
-  width: 100%;
+  background-color: var(--red);
+  color: var(--beige);
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 14px;
+  padding: 6px 4px;
 `

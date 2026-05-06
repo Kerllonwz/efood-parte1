@@ -1,24 +1,35 @@
-import { FooterBar, FooterContent, FooterLogo, FooterText, LogoIcon } from './styles'
-
-const CutleryIcon = () => (
-  <LogoIcon viewBox="0 0 40 40" aria-hidden="true">
-    <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.6">
-      <path d="M9 5v10M14 5v10M19 5v10M14 5v30M8 16c0 5 3 9 6 9s6-4 6-9" />
-      <path d="M29 5c5 6 5 14 0 20v10M34 5v30" />
-    </g>
-  </LogoIcon>
-)
+import facebook from '../../assets/images/facebook.png'
+import instagram from '../../assets/images/instagram.png'
+import logo from '../../assets/images/logo.png'
+import twitter from '../../assets/images/twitter.png'
+import { FooterBar, LegalText, Logo, SocialIcon, SocialList } from './styles'
 
 const Footer = () => (
   <FooterBar>
-    <FooterContent>
-      <FooterLogo aria-label="efood">
-        <span>efood</span>
-        <CutleryIcon />
-      </FooterLogo>
+    <Logo src={logo} alt="efood" />
 
-      <FooterText>Viva experiências gastronômicas no conforto da sua casa</FooterText>
-    </FooterContent>
+    <SocialList aria-label="Redes sociais">
+      <li>
+        <a href="https://www.instagram.com" aria-label="Instagram">
+          <SocialIcon src={instagram} alt="" />
+        </a>
+      </li>
+      <li>
+        <a href="https://www.facebook.com" aria-label="Facebook">
+          <SocialIcon src={facebook} alt="" />
+        </a>
+      </li>
+      <li>
+        <a href="https://www.twitter.com" aria-label="Twitter">
+          <SocialIcon src={twitter} alt="" />
+        </a>
+      </li>
+    </SocialList>
+
+    <LegalText>
+      A efood é uma plataforma para divulgação de estabelecimentos, a responsabilidade pela entrega,
+      qualidade dos produtos é toda do estabelecimento contratado.
+    </LegalText>
   </FooterBar>
 )
 

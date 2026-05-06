@@ -1,6 +1,13 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
+  :root {
+    --red: #E66767;
+    --cream: #FFF8F2;
+    --beige: #FFEBD9;
+    --white: #FFFFFF;
+  }
+
   * {
     box-sizing: border-box;
     margin: 0;
@@ -8,8 +15,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: #FFF8F2;
-    color: #E66767;
+    background-color: var(--cream);
+    color: var(--red);
     font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
   }
@@ -27,5 +34,11 @@ export const GlobalStyle = createGlobalStyle`
   img {
     display: block;
     max-width: 100%;
+  }
+
+  .container {
+    margin: 0 auto;
+    max-width: 1024px;
+    width: 100%;
   }
 `

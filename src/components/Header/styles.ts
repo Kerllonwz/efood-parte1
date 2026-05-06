@@ -1,59 +1,71 @@
-import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+import styled, { css } from 'styled-components'
 
-const cutleryPattern = encodeURIComponent(`
-  <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
-    <g fill="none" stroke="#E66767" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".15">
-      <path d="M29 16v22M39 16v22M34 16v62M24 18v14c0 8 5 14 10 14s10-6 10-14V18"/>
-      <path d="M64 17c8 9 8 21 0 30v31M73 17v61"/>
-    </g>
-  </svg>
-`)
+import fundo from '../../assets/images/fundo.png'
 
-export const HeaderBar = styled.header`
-  background-color: #FFF8F2;
-  background-image: url("data:image/svg+xml,${cutleryPattern}");
-  background-repeat: repeat;
-  padding: 64px 0;
+type HeaderBarProps = {
+  $variant: 'home' | 'restaurant'
+}
+
+export const HeaderBar = styled.header<HeaderBarProps>`
+  background-image: url(${fundo});
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  ${({ $variant }) =>
+    $variant === 'home'
+      ? css`
+          padding: 40px 0;
+        `
+      : css`
+          padding: 64px 0;
+        `}
 `
 
-export const HeaderContent = styled.div`
+export const HomeContent = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
-  max-width: 1366px;
-  padding: 0 40px;
-  text-align: center;
+  gap: 138px;
 `
 
-export const Logo = styled.div`
+export const NavContent = styled.div`
   align-items: center;
-  border: 2px solid #E66767;
-  color: #E66767;
-  display: inline-flex;
-  font-size: 36px;
-  font-weight: 900;
-  gap: 10px;
-  line-height: 1;
-  padding: 8px 16px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
 `
 
-export const LogoIcon = styled.svg`
+export const LogoLink = styled(Link)`
   display: block;
-  flex: 0 0 auto;
-  height: 36px;
-  width: 36px;
+  height: 58px;
+  width: 125px;
+`
+
+export const LogoImage = styled.img`
+  height: 58px;
+  width: 125px;
 `
 
 export const BannerText = styled.h1`
-  color: #E66767;
+  color: var(--red);
   font-size: 36px;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-top: 40px;
+  font-weight: 900;
+  line-height: 42px;
+  text-align: center;
+`
 
-  @media (max-width: 640px) {
-    font-size: 30px;
-  }
+export const NavText = styled(Link)`
+  color: var(--red);
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 21px;
+`
+
+export const CartText = styled.span`
+  color: var(--red);
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 21px;
+  text-align: right;
 `

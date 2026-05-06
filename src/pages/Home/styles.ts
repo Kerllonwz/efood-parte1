@@ -1,22 +1,19 @@
 import styled from 'styled-components'
 
 export const Main = styled.main`
-  background-color: #FFF8F2;
-  padding: 80px 0 120px;
-`
-
-export const Container = styled.div`
-  margin: 0 auto;
-  max-width: 1366px;
-  padding: 0 40px;
+  background-color: var(--cream);
 `
 
 export const RestaurantGrid = styled.div`
   display: grid;
-  gap: 32px 80px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 80px;
+  grid-template-columns: repeat(2, 472px);
+  padding: 80px 0 120px;
 
-  @media (max-width: 760px) {
+  @media (max-width: 1080px) {
     grid-template-columns: 1fr;
+    justify-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 `

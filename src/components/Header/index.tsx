@@ -1,28 +1,33 @@
-import { BannerText, HeaderBar, HeaderContent, Logo, LogoIcon } from './styles'
+import logo from '../../assets/images/logo.png'
+import { BannerText, CartText, HeaderBar, HomeContent, LogoImage, LogoLink, NavContent, NavText } from './styles'
 
-const CutleryIcon = () => (
-  <LogoIcon viewBox="0 0 40 40" aria-hidden="true">
-    <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.6">
-      <path d="M9 5v10M14 5v10M19 5v10M14 5v30M8 16c0 5 3 9 6 9s6-4 6-9" />
-      <path d="M29 5c5 6 5 14 0 20v10M34 5v30" />
-    </g>
-  </LogoIcon>
-)
+type Props = {
+  variant?: 'home' | 'restaurant'
+}
 
-const Header = () => (
-  <HeaderBar>
-    <HeaderContent>
-      <Logo aria-label="efood">
-        <span>efood</span>
-        <CutleryIcon />
-      </Logo>
+const Header = ({ variant = 'home' }: Props) => (
+  <HeaderBar $variant={variant}>
+    {variant === 'home' ? (
+      <HomeContent className="container">
+        <LogoLink to="/" aria-label="efood">
+          <LogoImage src={logo} alt="efood" />
+        </LogoLink>
 
-      <BannerText>
-        Viva experiências gastronômicas
-        <br />
-        no conforto da sua casa
-      </BannerText>
-    </HeaderContent>
+        <BannerText>
+          Viva experiências gastronômicas
+          <br />
+          no conforto da sua casa
+        </BannerText>
+      </HomeContent>
+    ) : (
+      <NavContent className="container">
+        <NavText to="/">Restaurantes</NavText>
+        <LogoLink to="/" aria-label="efood">
+          <LogoImage src={logo} alt="efood" />
+        </LogoLink>
+        <CartText>0 produto(s) no carrinho</CartText>
+      </NavContent>
+    )}
   </HeaderBar>
 )
 
