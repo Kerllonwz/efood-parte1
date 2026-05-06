@@ -10,7 +10,7 @@ export const RestaurantGrid = styled.div`
   grid-template-columns: repeat(2, 472px);
   padding: 80px 0 120px;
 
-  @media (max-width: 1080px) {
+  @media (max-width: 1023px) {
     grid-template-columns: 1fr;
     justify-items: center;
     padding-left: 16px;
